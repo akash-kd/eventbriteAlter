@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from main.views import home,PostView,postForm
+
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',home,name = 'hmoe'),
+    path('post/',PostView.as_view(),name='post')
 ]
+
+urlpatterns = urlpatterns + staticfiles_urlpatterns()
